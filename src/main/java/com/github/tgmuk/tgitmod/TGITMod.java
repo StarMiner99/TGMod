@@ -1,6 +1,7 @@
 package com.github.tgmuk.tgitmod;
 
 import com.github.tgmuk.tgitmod.registration.BlockRegister;
+import com.github.tgmuk.tgitmod.registration.EntityTypeRegister;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Material;
@@ -28,6 +29,7 @@ public class TGITMod {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         BlockRegister.BLOCKS.register(modBus);
+        EntityTypeRegister.ENTITY_TYPES.register(modBus);
 
 
     }
