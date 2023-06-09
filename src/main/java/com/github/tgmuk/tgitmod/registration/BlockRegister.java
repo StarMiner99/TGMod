@@ -1,10 +1,12 @@
 package com.github.tgmuk.tgitmod.registration;
 
 import com.github.tgmuk.tgitmod.StaticModValues;
+import com.github.tgmuk.tgitmod.block.MicrocontrollerBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -26,5 +28,7 @@ public class BlockRegister {
     // blocks:
     public static final RegistryObject<Block> TEST_BLOCK = register("test", () -> new Block(Block.Properties.of(Material.CLAY)), new Item.Properties());
 
+    public static final RegistryObject<Block> RAM_BLOCK = register("ram_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL)), new Item.Properties());
 
+    public static final RegistryObject<Block> MICROCONTROLLER_BLOCK = register("microcontroller_block", MicrocontrollerBlock::new, new Item.Properties());
 }
