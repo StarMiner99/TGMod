@@ -1,5 +1,6 @@
 package com.github.tgmuk.tgitmod.entity;
 
+import com.github.tgmuk.tgitmod.TGITMod;
 import com.github.tgmuk.tgitmod.registration.EntityTypeRegister;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
@@ -34,6 +35,13 @@ public class MikEntity extends Animal {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 15D).add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
+    @SubscribeEvent
+    public static void entityUsed(PlayerInteractEvent.EntityInteract event) {
+        if (event.getEntity().getType() == EntityTypeRegister.MIK_ENTITY.get()) {
+            TGITMod.LOGGER.debug("ohh ja");
+        }
+    }
+
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
@@ -44,6 +52,8 @@ public class MikEntity extends Animal {
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
     }
+
+
 
 
 }
